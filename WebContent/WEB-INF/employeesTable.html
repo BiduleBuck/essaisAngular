@@ -1,0 +1,32 @@
+		<p>
+		<input type="checkbox" ng-model="hideSalary" /> Masquer salaire
+		</p>
+		<table>
+			<thead>
+				<th ng-click="sortData('name')">Nom
+					<div ng-class="getSortClass('name')"></div>
+				</th>
+				<th ng-click="sortData('gender')">Genre
+					<div ng-class="getSortClass('gender')"></div>
+				</th>
+				<th ng-click="sortData('salary')">Salaire
+					<div ng-class="getSortClass('salary')"></div>
+				</th>
+				<th ng-click="sortData('city')">Ville
+					<div ng-class="getSortClass('city')"></div>
+				</th>
+			</thead>
+			<tbody>
+				<tr
+					ng-repeat="employee in employees | orderBy:sortColumn:reverseSort">
+					<td>{{ employee.name }}</td>
+					<td>{{ employee.gender | gender }}</td>
+					
+					<td ng-hide="hideSalary">{{ employee.salary }}</td>
+					<td ng-show="hideSalary">*****</td>
+					
+					<td>{{ employee.city }}</td>
+				</tr>
+			</tbody>
+
+		</table>

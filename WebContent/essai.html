@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="Scripts/Angular.js"></script>
+<script src="Scripts/Module.js"></script>
+<script src="Scripts/Filters.js"></script>
+<link rel="stylesheet" type="text/css" href="Css/style	.css">
+
+</head>
+<body ng-app="myModule">
+	<div ng-controller="myController">
+		<p>
+		{{ message }}
+		</p>
+		Selectionner votre vue :
+		<select ng-model="employeesView">
+			<option value="WEB-INF/employeesTable.html">Table</option>
+			<option value="WEB-INF/employeesListe.html">Liste</option>
+		</select>
+		<div ng-include="employeesView"></div>
+
+	</div>
+
+</body>
+</html>
